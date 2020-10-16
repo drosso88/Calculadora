@@ -10,16 +10,26 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var pantalla: UILabel!
+    var elUsuarioEstaEnMedioDeLaEscrituraDeUnNumero : Bool = false
+    
+    @IBAction func numeroPulsado(_ sender: UIButton) {
+        var digito : String!
+        digito = sender.currentTitle
+        print(digito)
+        
+        if elUsuarioEstaEnMedioDeLaEscrituraDeUnNumero {
+            pantalla.text = pantalla.text! + digito
+        } else {
+            pantalla.text = digito
+            elUsuarioEstaEnMedioDeLaEscrituraDeUnNumero = true
+        }
+        
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 
